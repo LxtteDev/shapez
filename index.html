@@ -1,8 +1,9 @@
+
 <!doctype html>
 <html lang="en" style="--ui-scale:1.33">
 
 <head>
-    <title>shapez Demo - Factory Automation Game</title>
+    <title>shapez Demo Local</title>
     <!-- mobile stuff -->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
@@ -24,17 +25,26 @@
     <!-- misc -->
     <meta http-equiv="Cache-Control" content="private, max-age=0, no-store, no-cache, must-revalidate">
     <meta http-equiv="Expires" content="0">
-    <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/LxtteDev/shapez/main/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="canonical" href="https://shapez.io">
-    <link rel="stylesheet" type="text/css" media="none" onload="this.media=&#34;all&#34;" href="">
-    <link rel="preload" href="https://raw.githubusercontent.com/LxtteDev/shapez/main/res/fonts/GameFont.woff2" crossorigin="anonymous" as="font">
+    <link rel="stylesheet" type="text/css" media="none" onload="this.media=&#34;all&#34;" href="./main.css">
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-165342524-1" async></script>
+    <script>
+        function gtag() {
+            dataLayer.push(arguments)
+        }
+        window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-165342524-1", {
+            anonymize_ip: !0
+        })
+    </script>
+    <link rel="preload" href=".https://raw.githubusercontent.com/LxtteDev/shapez/main/res/fonts/GameFont.woff2" crossorigin="anonymous" as="font">
     <style type="text/css">
         @font-face {
             font-family: GameFont;
             font-style: normal;
             font-weight: 400;
             font-display: swap;
-            src: url(res/fonts/GameFont.woff2) format("woff2")
+            src: url(https://raw.githubusercontent.com/LxtteDev/shapez/main/res/fonts/GameFont.woff2) format("woff2")
         }
 
         * {
@@ -294,9 +304,8 @@
         }
     </style>
     <script type="text/javascript">
-        var bundleSrc = 'bundle.js';
-        var bundleIntegrity = null;
-        var bundleIntegrityTranspiled = null;
+        var bundleSrc = 'https://raw.githubusercontent.com/LxtteDev/shapez/main/bundle.js'; // '/v/52166fdd/bundle.js';
+        var bundleIntegrity = 'sha256-gJkN0RvNaaw4k023w7s6J+gF/wCwmK5lplOyZtNs6i0=';
         (function() {
             var loadTimeout = null;
             var callbackDone = false;
@@ -417,7 +426,7 @@
                 var xhr = new XMLHttpRequest();
                 var notifiedNotComputable = false;
 
-                xhr.open("GET", "https://raw.githubusercontent.com/LxtteDev/shapez/main/bundle.js", true); // bundleSrc
+                xhr.open("GET", bundleSrc, true);
                 xhr.responseType = "arraybuffer";
                 xhr.onprogress = function(ev) {
                     if (ev.lengthComputable) {
@@ -429,6 +438,7 @@
                 };
 
                 xhr.onloadend = function() {
+                    console.log("Bundle XHR loaded!")
                     if (!xhr.status.toString().match(/^2/)) {
                         throw new Error("Failed to load bundle: " + xhr.status + " " + xhr.statusText);
                     } else {
@@ -448,10 +458,10 @@
                         var script = document.createElement("script");
                         script.addEventListener("load", onJsLoaded);
                         script.src = window.URL.createObjectURL(blob);
-                        script.type = "text/javcript";
+                        script.type = "text/javascript";
                         script.charset = "utf-8";
                         if (bundleIntegrity) {
-                            script.setAttribute("integrity", bundleIntegrity);
+                            // script.setAttribute("integrity", bundleIntegrity);
                         }
                         document.head.appendChild(script);
                     }
